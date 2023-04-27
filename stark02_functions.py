@@ -67,10 +67,10 @@ def calcular_max(heroes:list, key:str):
             mayor_personaje = heroe
     return mayor_personaje[key]
 
-def calcular_max(heroes:list, key:str):
+def calcular_min(heroes:list, key:str):
     menor_personaje = heroes[0]
 
     for heroe in heroes:
-        if heroe[key] > menor_personaje[key]:
+        if heroe[key] < menor_personaje[key]:
             menor_personaje = heroe
     return menor_personaje[key]
