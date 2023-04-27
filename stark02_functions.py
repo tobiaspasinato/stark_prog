@@ -59,18 +59,18 @@ def stark_imprimir_nombres_alturas(lista:list):
         for personaje in lista:
             imprimirRespuesta(obtener_nombre_y_dato(personaje["nombre"], "altura"))
 
-def calcular_max(lista:list, key:str):
-    mayor = lista[0]
+def calcular_max(heroes:list, key:str):
+    mayor_personaje = heroes[0]
 
-    for personaje in lista:
-        if personaje[key] > mayor[key]:
-            mayor = personaje[key]
-    return mayor
+    for heroe in heroes:
+        if heroe[key] > mayor_personaje[key]:
+            mayor_personaje = heroe
+    return mayor_personaje[key]
 
-def calcular_min(lista:list, key:str):
-    menor = lista[0]
+def calcular_max(heroes:list, key:str):
+    menor_personaje = heroes[0]
 
-    for personaje in lista:
-        if personaje[key] < menor[key]:
-            menor = personaje[key]
-    return menor
+    for heroe in heroes:
+        if heroe[key] > menor_personaje[key]:
+            menor_personaje = heroe
+    return menor_personaje[key]
