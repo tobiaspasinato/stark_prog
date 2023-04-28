@@ -67,11 +67,11 @@ def calcular_max(heroes:list, key:str):
             mayor_personaje = heroe
     return mayor_personaje[key]
 
-def calcular_max(heroes:list, key:str):
+def calcular_min(heroes:list, key:str):
     menor_personaje = heroes[0]
 
     for heroe in heroes:
-        if heroe[key] > menor_personaje[key]:
+        if heroe[key] < menor_personaje[key]:
             menor_personaje = heroe
     return menor_personaje[key]
 
@@ -80,3 +80,10 @@ def stark_calcular_imprimir_heroe(heroes:list, calculo:str, key:str):
     if len(heroes) == 0:
         lista_vacia == -1
     elif 
+def calcular_max_min_dato(heroes:list, calculo:str, key:str):
+    if calculo == "maximo":
+        calcular_max(heroes, key)
+    elif calculo == "minimo":
+        calcular_min(heroes, key)
+
+def stark_calcular_imprimir_heroe():
