@@ -74,3 +74,9 @@ def calcular_max(heroes:list, key:str):
         if heroe[key] > menor_personaje[key]:
             menor_personaje = heroe
     return menor_personaje[key]
+
+def stark_calcular_imprimir_heroe(heroes:list, calculo:str, key:str):
+    lista_vacia = 0
+    if len(heroes) == 0:
+        lista_vacia == -1
+    elif 
