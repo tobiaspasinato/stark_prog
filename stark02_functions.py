@@ -65,7 +65,10 @@ def calcular_max(heroes:list, key:str):
     for heroe in heroes:
         if heroe[key] > mayor_personaje[key]:
             mayor_personaje = heroe
-    return mayor_personaje[key]
+            nombreHeroeMayor = mayor_personaje["nombre"]
+            keyHeroeMayor = mayor_personaje[key]
+    mensaje = f"Personaje: {nombreHeroeMayor} | {key}: {keyHeroeMayor}"
+    return mensaje
 
 def calcular_min(heroes:list, key:str):
     menor_personaje = heroes[0]
@@ -73,17 +76,26 @@ def calcular_min(heroes:list, key:str):
     for heroe in heroes:
         if heroe[key] < menor_personaje[key]:
             menor_personaje = heroe
-    return menor_personaje[key]
+            nombreHeroeMenor = menor_personaje["nombre"]
+            keyHeroeMenor = menor_personaje[key]
+    mensaje = f"Personaje: {nombreHeroeMenor} | {key}: {keyHeroeMenor}"
+    return mensaje
 
-def stark_calcular_imprimir_heroe(heroes:list, calculo:str, key:str):
-    lista_vacia = 0
-    if len(heroes) == 0:
-        lista_vacia == -1
-    elif 
 def calcular_max_min_dato(heroes:list, calculo:str, key:str):
     if calculo == "maximo":
         calcular_max(heroes, key)
     elif calculo == "minimo":
         calcular_min(heroes, key)
 
-def stark_calcular_imprimir_heroe():
+def stark_calcular_imprimir_heroe(heroes:list, calculo:str, key:str):
+    lista_vacia = 0
+    if len(heroes) == 0:
+        lista_vacia == -1
+        return lista_vacia
+    elif len(heroes) != 0:
+        lista_vacia == 1
+        imprimirRespuesta(calcular_max_min_dato(heroes, calculo, key))
+
+
+
+

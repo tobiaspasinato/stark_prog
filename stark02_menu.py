@@ -17,7 +17,6 @@ while True:
     elif opcion == 2:
         stark_imprimir_nombres_alturas(lista_personajes)
     elif opcion == 3:
-        
-
+        stark_calcular_imprimir_heroe(lista_personajes, "maximo", "altura")
 system("cls")
 print("Fin del Programa")
