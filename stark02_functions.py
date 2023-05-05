@@ -1,29 +1,32 @@
 from data_stark import lista_personajes
+import re
 
 def imprimirRespuesta(texto):
     print(texto)
 
 def stark_normalizar_datos(lista:list):
-    contadorDeModificaciones = 0
+    modificaciones = False
     if len(lista) == 0:
-        mensaje = "Error, la lista esta vacia"
+        print("Error, la lista esta vacia")
     else:
         for personaje in lista:
             if type(personaje["altura"]) == str:
                 altura = float(personaje["altura"])
                 personaje["altura"] = altura
-                contadorDeModificaciones += 1
-            elif type(personaje["peso"]) == str:
+                modificaciones = True
+            
+            if type(personaje["peso"]) == str:
                 peso = float(personaje["peso"])
                 personaje["peso"] = peso
-                contadorDeModificaciones += 1
-            elif type(personaje["fuerza"]) == str:
+                modificaciones = True
+            
+            if type(personaje["fuerza"]) == str:
                 fuerza = int(personaje["fuerza"])
                 personaje["fuerza"] = fuerza
-                contadorDeModificaciones += 1
+                modificaciones = True
     
-    if contadorDeModificaciones > 0:
-        mensaje = "Datos normalizados"
+    if modificaciones:
+        print("Datos normalizados")
 
 def obtener_nombre(personaje:dict):
     nombre = personaje["nombre"]
@@ -31,13 +34,9 @@ def obtener_nombre(personaje:dict):
     return mensaje
 
 def stark_imprimir_nombres_heroes(listas:list):
-    valor_lista = 0
-
     if len(listas) == 0:
-        valor_lista = -1
-        return valor_lista
+        return -1
     else:
-        valor_lista = 1
         for personaje in listas:
             imprimirRespuesta(obtener_nombre(personaje))
 
@@ -49,13 +48,9 @@ def obtener_nombre_y_dato(personaje:dict, key:str):
     return mensaje
 
 def stark_imprimir_nombres_alturas(lista:list):
-    valor_lista = 0
-
     if len(lista) == 0:
-        valor_lista = -1
-        return valor_lista
+        return -1
     else:
-        valor_lista = 1
         for personaje in lista:
             imprimirRespuesta(obtener_nombre_y_dato(personaje["nombre"], "altura"))
 
@@ -65,8 +60,10 @@ def calcular_max(heroes:list, key:str):
     for heroe in heroes:
         if heroe[key] > mayor_personaje[key]:
             mayor_personaje = heroe
-            nombreHeroeMayor = mayor_personaje["nombre"]
-            keyHeroeMayor = mayor_personaje[key]
+
+    nombreHeroeMayor = mayor_personaje["nombre"]
+    keyHeroeMayor = mayor_personaje[key]
+
     mensaje = f"Personaje: {nombreHeroeMayor} | {key}: {keyHeroeMayor}"
     return mensaje
 
@@ -74,10 +71,12 @@ def calcular_min(heroes:list, key:str):
     menor_personaje = heroes[0]
 
     for heroe in heroes:
-        if heroe[key] < menor_personaje[key]:
+        if heroe[key] > menor_personaje[key]:
             menor_personaje = heroe
-            nombreHeroeMenor = menor_personaje["nombre"]
-            keyHeroeMenor = menor_personaje[key]
+
+    nombreHeroeMenor = menor_personaje["nombre"]
+    keyHeroeMenor = menor_personaje[key]
+
     mensaje = f"Personaje: {nombreHeroeMenor} | {key}: {keyHeroeMenor}"
     return mensaje
 
@@ -88,12 +87,9 @@ def calcular_max_min_dato(heroes:list, calculo:str, key:str):
         calcular_min(heroes, key)
 
 def stark_calcular_imprimir_heroe(heroes:list, calculo:str, key:str):
-    valor_lista = 0
     if len(heroes) == 0:
-        valor_lista == -1
-        return valor_lista
-    elif len(heroes) != 0:
-        valor_lista == 1
+        return -1
+    else:
         imprimirRespuesta(calcular_max_min_dato(heroes, calculo, key))
 
 def sumar_dato_heroe(heroes:list, key:str):
@@ -137,5 +133,9 @@ def imprimir_menu():
     \n5 - Promedio Alturas
     \n0 - Salir del Programa
     """
-
     imprimirRespuesta(menu)
+
+# def validar_entero(num:str):
+
+#     if float(num) == :
+#         return 

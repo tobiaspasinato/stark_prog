@@ -1,15 +1,10 @@
 from stark02_functions import*
 from os import system
 
+stark_normalizar_datos(lista_personajes)
+
 while True:
-    print("""\nCual opción va a elegir?
-    \n1 - El nombre de todos los héroes
-    \n2 - Altura de todos los heroes
-    \n3 - Heroe mas alto
-    \n4 - Heroe mas chico
-    \n5 - Promedio Alturas
-    \n0 - Salir del Programa
-    """)
+    imprimir_menu()
     
     opcion = int(input("Cual opción va a elegir? "))
 
